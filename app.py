@@ -270,4 +270,4 @@ def calculate_anova(df, group_column, variable_column):
     return result
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=8000)
+    app.run(debug=True, host='0.0.0.0', port=8001)
