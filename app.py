@@ -200,6 +200,15 @@ def index():
             # Read the CSV file
             df = pd.read_csv(filepath)
 
+            df = df.rename(columns={
+                f"{group_column}": "group_column",
+                f"{variable_column}": "variable_column",
+            })
+
+            group_column = "group_column"
+            variable_column = "variable_column"
+
+
             # Check if columns exist in the CSV
             if group_column not in df.columns or variable_column not in df.columns:
                 return "Error: The specified columns do not exist in the CSV file."
