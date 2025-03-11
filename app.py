@@ -164,9 +164,6 @@ rawhtml = """
                 <p><strong>F-Statistic:</strong> {{ result.f_statistic | round(4) }}</p>
                 <p><strong>P-Value:</strong> {{ result.p_value | round(10) }}</p>
                 <p><strong>F-Critical (α=0.05):</strong> {{ result.f_critical | round(4) }}</p>
-                <p><strong>Group Column:</strong> {{ result.group_column }}</p>
-                <p><strong>Variable Column:</strong> {{ result.variable_column }}</p>
-                <p><strong>Groups:</strong> {{ result.groups | join(', ') }}</p>
 
                 <h3>Conclusion</h3>
                 {% if result.p_value < 0.05 %}
@@ -271,12 +268,10 @@ def calculate_anova(df, group_column, variable_column):
         'f_statistic': f_statistic,
         'p_value': p_value,
         'f_critical': f_critical,
-        'group_column': group_column,
-        'variable_column': variable_column,
-        'groups': groups.index.tolist(),
     }
 
     return result
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=8001)
+
